@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Unbounded } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const unbounded = Unbounded({ subsets: ["latin"], variable: "--font-heading" });
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${unbounded.variable}`}>
       <body className="max-w-5xl mx-auto p-5 antialiased">
+        <Toaster />
         <Navbar />
         {children}
       </body>
