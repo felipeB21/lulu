@@ -20,7 +20,7 @@ export default function NotFound() {
             Volver al inicio
           </Link>
         }
-      ></Button>
+      />
     </div>
   );
 }
