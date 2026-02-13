@@ -6,7 +6,10 @@ export async function proxy(request: NextRequest) {
   const sessionCookie = getSessionCookie(request);
   const { pathname } = request.nextUrl;
 
-  if (sessionCookie && pathname.startsWith("/verify-email")) {
+  if (
+    sessionCookie &&
+    (pathname === "/" || pathname.startsWith("/verify-email"))
+  ) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
@@ -18,5 +21,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/verify-email"],
+  matcher: ["/", "/dashboard/:path*", "/verify-email"],
 };

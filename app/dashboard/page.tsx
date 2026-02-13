@@ -1,7 +1,9 @@
+"use server";
 import { session } from "@/lib/auth-server";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
   const user = session?.user;
+
   return (
     <div className="my-10 font-sans">
       <h1 className="text-3xl font-bold font-heading">
